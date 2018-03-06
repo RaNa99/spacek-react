@@ -1,3 +1,10 @@
+import unLogo from '../../img/logo/un.png';
+import gridologyLogo from '../../img/logo/gridology.png';
+import valkenLogo from '../../img/logo/valken.png';
+import bocLogo from '../../img/logo/boc.png';
+import udLogo from '../../img/logo/ud.png';
+import jluLogo from '../../img/logo/jlu.png';
+
 export const ProfileArray = [
   {
     header: 'SUMMARY',
@@ -39,6 +46,7 @@ export const ProfileArray = [
     subSections:  [
       {
         subHeader: 'United Nations',
+        subHeaderImg: unLogo,
         title: 'MEAN Stack Developer',
         time: '09/2017 -  Present',
         location: 'New York, NY',
@@ -46,12 +54,13 @@ export const ProfileArray = [
           'Migrated  iSCAD to MEAN Stack web application iSCAD+ which is better suited to produce analytical tools.',
           'Created MongoDB database, and finished part of data migration from Lotus Notes to local MongoDB(Developing env) and MongoDB Atlas(Production env).',
           'Built front end platform which developed by Angular4 to enable internal and external users to gain broader access to nonsensitive public data on the work of the Security Council.',
-          'Implement  APIs in Node & Express and dockerized APIs as independent docker containers, deployed containers to AWS Ubuntu server in micro-services architecture.',
+          'Implement  RESTful APIs in Node & Express and dockerized APIs as independent docker containers, deployed containers to AWS Ubuntu server in micro-services architecture.',
           'Automated parsing and saving Security Council xml PVs(Meeting records) automatically'
         ]
       },
       {
-        subHeader: 'Gridology Education Tech Inc.',
+        subHeader: 'Gridology Education Tech',
+        subHeaderImg: gridologyLogo,
         title: 'Front End Developer',
         time: '03/2017 - 09/2017',
         location: 'Fort Lee, NJ',
@@ -62,7 +71,8 @@ export const ProfileArray = [
         ]
       },
       {
-        subHeader: 'Valken Sports Inc.',
+        subHeader: 'Valken Sports',
+        subHeaderImg: valkenLogo,
         title: 'Intern Front-end Developer',
         time: '06/2016 - 12/2016',
         location: 'Swedesboro, NJ',
@@ -74,6 +84,7 @@ export const ProfileArray = [
       },
       {
         subHeader: 'Bank of Communications',
+        subHeaderImg: bocLogo,
         title: 'Software Engineer',
         time: '07/2013 - 05/2014',
         location: 'Shanghai, China',
@@ -95,7 +106,7 @@ export const ProfileArray = [
         time: '',
         location: '',
         items: [
-          'Built a personal blog which implementes with React, Flask and mySQL.',
+          'Built a personal blog which implementes with React, Redux, Flask and mySQL.',
           'Established Profile, Schedule and Note modules, applied user authentication and RBAC into project.',
           'GitHub: https://github.com/pinebrook/cloudFan.git'
         ]
@@ -127,7 +138,7 @@ export const ProfileArray = [
         time: '',
         location: '',
         items: [
-          'Built a school social network www.yuewho.net, implemented website with Angular.js, jQuery, PHP and MySQL.',
+          'Built a school social network www.yuewho.net, implemented website with AngularJS, jQuery, PHP and mySQL.',
           'GitHub: https://github.com/aeromomo/faceit_two.git'
         ]
       }
@@ -138,6 +149,7 @@ export const ProfileArray = [
     subSections:  [
       {
         subHeader: 'University of Delaware',
+        subHeaderImg: udLogo,
         title: 'Master of Science in Electrical & Computer Engineering',
         time: '2015 - 2016',
         location: 'Newark, DE',
@@ -147,6 +159,7 @@ export const ProfileArray = [
       },
       {
         subHeader: 'Jilin University ',
+        subHeaderImg: jluLogo,
         title: 'Bachelor of Engineering in Telecommunication Engineering',
         time: '2009 - 2013',
         location: 'Changchun, China',

@@ -35,7 +35,7 @@ class Profile extends Component {
       profile.push((
         <ProfileSection section={section} key={section.header}/>
       ));
-    })
+    });
 
     return (
       <Grid>

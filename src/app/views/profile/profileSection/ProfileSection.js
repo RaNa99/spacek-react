@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { Row, Col } from 'react-bootstrap';
 import { withStyles } from 'material-ui/styles';
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -10,7 +11,7 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-// import Chip from 'material-ui/Chip';
+import Chip from 'material-ui/Chip';
 import List, {
   ListItem,
   ListItemText
@@ -35,7 +36,8 @@ const styles = theme => ({
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
   },
   chip: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
+    fontSize: theme.typography.pxToRem(16)
   }
 });
 
@@ -43,6 +45,12 @@ const ProfileSection = function (props) {
   const { classes } = props;
 
   let profileSectionDetail = [];
+  const skillsSetArray = ['MEAN', 'MongoDB', 'MongoDB Atlas', 'Angular4', 'RESTful API', 
+    'Node', 'Express', 'Mongoose', 'Docker', 'micro-services', 'AngularJS', 'Bootstrap', 
+    'Python', 'Django', 'WordPress', 'Backbone', 'Gulp', 'Sass', 'LESS', 'CSS', 'Adobe Flex', 
+    'Java', 'Testing', 'React', 'Redux', 'Flask', 'mySQL', 'PHP', 'ajax', 'SQL Injection Defense', 
+    'RBAC', 'Encryption', 'jQuery', 'NetSuit'];
+
   props.section.subSections.map(subSection => {
     if(subSection.subHeader === '') {
       profileSectionDetail.push((
@@ -53,7 +61,7 @@ const ProfileSection = function (props) {
               <List>
                 {subSection.items.map((item, index) => {
                   return (
-                    <ListItem button key={index}>
+                    <ListItem key={index}>
                       <ListItemText
                         className="listItemText"
                         primary={item} />
@@ -71,20 +79,53 @@ const ProfileSection = function (props) {
           <Divider />
           <ExpansionPanelDetails>
             <div className={classes.columnLeft}>
-              <h4><b>{subSection.subHeader}</b></h4>
+              {
+                subSection.hasOwnProperty('subHeaderImg') 
+                  ? <Row className="show-grid subHeaderCtn">
+                    <Col xs={4}>
+                      <img src={subSection.subHeaderImg} />
+                    </Col>
+                    <Col xs={8}>
+                      < h4><b>{subSection.subHeader}</b></h4>
+                    </Col>
+                  </Row>
+                  : < h4><b>{subSection.subHeader}</b></h4>
+              }
               <h5><b>{subSection.title}</b></h5>
               <h5>{subSection.location}</h5>
               <h5>{subSection.time}</h5>
+              {
+                (!subSection.subHeader .includes('University')) 
+                  ? subSection.items.map(item => {
+                    return skillsSetArray.map((skill, index) => {
+                      if (item.includes(skill)) {
+                        return (
+                          <Chip label={skill} key={index} className={classes.chip} />
+                        );
+                      } else {
+                        return null;
+                      }
+                    });
+                  })
+                  : null
+              }
             </div>
             <div className={classNames(classes.columnRight, classes.helper)}>
               <List>
                 {subSection.items.map((item, index) => {
-                  return (
-                    <ListItem button key={index}>
-                      <ListItemText 
-                        className="listItemText"
-                        primary={item} />
-                    </ListItem>);
+                  if(item.includes('https://')) {
+                    return (
+                      <ListItem button key={index}>
+                        <a href={'https' + item.split('https')[1]} target="_blank">{item}</a>
+                      </ListItem>);
+                  } else {
+                    return (
+                      <ListItem key={index}>
+                        <ListItemText 
+                          className="listItemText"
+                          primary={item} />
+                      </ListItem>);
+                  }
                 })}
               </List>
             </div>
