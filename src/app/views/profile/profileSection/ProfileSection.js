@@ -143,8 +143,7 @@ const ProfileSection = function (props) {
       {profileSectionDetail}
     </ExpansionPanel>
   );
-}
-
+};
 
 ProfileSection.propTypes = {
   classes: PropTypes.object.isRequired,
