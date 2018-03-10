@@ -26,6 +26,7 @@ import TwitterFeedConnected         from '../views/twitterFeed';
 import WorkProgressConnected        from '../views/workProgress';
 import ProtectedConnected           from '../views/protected';
 import Profile                      from '../views/profile/Profile';
+import Schedule                      from '../views/schedule/Schedule';
 
 export const MainRoutes = () => (
   <Switch>
@@ -53,6 +54,7 @@ export const MainRoutes = () => (
     <Route path="/general/pagination" component={PaginationViewConnected} />
 
     <Route path="/profile" exact component={Profile} />
+    <Route path="/schedule" exact component={Schedule} />
 
     {/* private views: need user to be authenticated */}
     <PrivateRoute path="/protected" component={ProtectedConnected} />

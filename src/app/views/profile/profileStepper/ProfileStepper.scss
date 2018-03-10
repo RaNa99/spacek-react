@@ -1,0 +1,17 @@
+.profileStepperCtn {
+    :hover {
+        animation-name: slidein;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes slidein {
+    from {
+        right: 0;
+    }
+  
+    to {
+        right: 160px;
+    }
+}

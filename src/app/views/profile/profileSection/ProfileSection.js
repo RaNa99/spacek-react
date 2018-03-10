@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -41,109 +41,112 @@ const styles = theme => ({
   }
 });
 
-const ProfileSection = function (props) {
-  const { classes } = props;
+class ProfileSection extends Component {
+  render() {
+    const { classes } = this.props;
 
-  let profileSectionDetail = [];
-  const skillsSetArray = ['MEAN', 'MongoDB', 'MongoDB Atlas', 'Angular4', 'RESTful API', 
-    'Node', 'Express', 'Mongoose', 'Docker', 'micro-services', 'AngularJS', 'Bootstrap', 
-    'Python', 'Django', 'WordPress', 'Backbone', 'Gulp', 'Sass', 'LESS', 'CSS', 'Adobe Flex', 
-    'Java', 'Testing', 'React', 'Redux', 'Flask', 'mySQL', 'PHP', 'ajax', 'SQL Injection Defense', 
-    'RBAC', 'Encryption', 'jQuery', 'NetSuit'];
-
-  props.section.subSections.map(subSection => {
-    if(subSection.subHeader === '') {
-      profileSectionDetail.push((
-        <div key={subSection.subHeader}>
-          <Divider />
-          <ExpansionPanelDetails>
-            <Typography variant="caption">
-              <List>
-                {subSection.items.map((item, index) => {
-                  return (
-                    <ListItem key={index}>
-                      <ListItemText
-                        className="listItemText"
-                        primary={item} />
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Typography>
-          </ExpansionPanelDetails>
-        </div>
-      ));
-    } else {
-      profileSectionDetail.push((
-        <div key={subSection.subHeader}>
-          <Divider />
-          <ExpansionPanelDetails>
-            <div className={classes.columnLeft}>
-              {
-                subSection.hasOwnProperty('subHeaderImg') 
-                  ? <Row className="show-grid subHeaderCtn">
-                    <Col xs={4}>
-                      <img src={subSection.subHeaderImg} />
-                    </Col>
-                    <Col xs={8}>
-                      < h4><b>{subSection.subHeader}</b></h4>
-                    </Col>
-                  </Row>
-                  : < h4><b>{subSection.subHeader}</b></h4>
-              }
-              <h5><b>{subSection.title}</b></h5>
-              <h5>{subSection.location}</h5>
-              <h5>{subSection.time}</h5>
-              {
-                (!subSection.subHeader .includes('University')) 
-                  ? subSection.items.map(item => {
-                    return skillsSetArray.map((skill, index) => {
-                      if (item.includes(skill)) {
-                        return (
-                          <Chip label={skill} key={index} className={classes.chip} />
-                        );
-                      } else {
-                        return null;
-                      }
-                    });
-                  })
-                  : null
-              }
-            </div>
-            <div className={classNames(classes.columnRight, classes.helper)}>
-              <List>
-                {subSection.items.map((item, index) => {
-                  if(item.includes('https://')) {
-                    return (
-                      <ListItem button key={index}>
-                        <a href={'https' + item.split('https')[1]} target="_blank">{item}</a>
-                      </ListItem>);
-                  } else {
+    let profileSectionDetail = [];
+    const skillsSetArray = ['MEAN', 'MongoDB', 'MongoDB Atlas', 'Angular4', 'RESTful API', 
+      'Node', 'Express', 'Mongoose', 'Docker', 'micro-services', 'AngularJS', 'Bootstrap', 
+      'Python', 'Django', 'WordPress', 'Backbone', 'Gulp', 'Sass', 'LESS', 'CSS', 'Adobe Flex', 
+      'Java', 'Testing', 'React', 'Redux', 'Flask', 'mySQL', 'PHP', 'ajax', 'SQL Injection Defense', 
+      'RBAC', 'Encryption', 'jQuery', 'NetSuit'];
+  
+    this.props.section.subSections.map(subSection => {
+      if(subSection.subHeader === '') {
+        profileSectionDetail.push((
+          <div key={subSection.subHeader}>
+            <Divider />
+            <ExpansionPanelDetails>
+              <Typography variant="caption">
+                <List>
+                  {subSection.items.map((item, index) => {
                     return (
                       <ListItem key={index}>
-                        <ListItemText 
+                        <ListItemText
                           className="listItemText"
                           primary={item} />
-                      </ListItem>);
-                  }
-                })}
-              </List>
-            </div>
-          </ExpansionPanelDetails>
-        </div>
-      ));
-    }
-  });
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Typography>
+            </ExpansionPanelDetails>
+          </div>
+        ));
+      } else {
+        profileSectionDetail.push((
+          <div key={subSection.subHeader}>
+            <Divider />
+            <ExpansionPanelDetails>
+              <div className={classes.columnLeft}>
+                {
+                  subSection.hasOwnProperty('subHeaderImg') 
+                    ? <Row className="show-grid subHeaderCtn">
+                      <Col xs={4}>
+                        <img src={subSection.subHeaderImg} />
+                      </Col>
+                      <Col xs={8}>
+                        < h4><b>{subSection.subHeader}</b></h4>
+                      </Col>
+                    </Row>
+                    : < h4><b>{subSection.subHeader}</b></h4>
+                }
+                <h5><b>{subSection.title}</b></h5>
+                <h5>{subSection.location}</h5>
+                <h5>{subSection.time}</h5>
+                {
+                  (!subSection.subHeader .includes('University')) 
+                    ? subSection.items.map(item => {
+                      return skillsSetArray.map((skill, index) => {
+                        if (item.includes(skill)) {
+                          return (
+                            <Chip label={skill} key={index} className={classes.chip} />
+                          );
+                        } else {
+                          return null;
+                        }
+                      });
+                    })
+                    : null
+                }
+              </div>
+              <div className={classNames(classes.columnRight, classes.helper)}>
+                <List>
+                  {subSection.items.map((item, index) => {
+                    if(item.includes('https://')) {
+                      return (
+                        <ListItem button key={index}>
+                          <a href={'https' + item.split('https')[1]} target="_blank">{item}</a>
+                        </ListItem>);
+                    } else {
+                      return (
+                        <ListItem key={index}>
+                          <ListItemText 
+                            className="listItemText"
+                            primary={item} />
+                        </ListItem>);
+                    }
+                  })}
+                </List>
+              </div>
+            </ExpansionPanelDetails>
+          </div>
+        ));
+      }
+    });
+  
+    return (
+      <ExpansionPanel defaultExpanded>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>{this.props.section.header}</Typography>
+        </ExpansionPanelSummary>
+        {profileSectionDetail}
+      </ExpansionPanel>
+    );
+  }
 
-  return (
-    <ExpansionPanel defaultExpanded>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography className={classes.heading}>{props.section.header}</Typography>
-      </ExpansionPanelSummary>
-      {profileSectionDetail}
-    </ExpansionPanel>
-  );
-};
+}
 
 ProfileSection.propTypes = {
   classes: PropTypes.object.isRequired,

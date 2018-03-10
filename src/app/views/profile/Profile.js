@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { withStyles } from 'material-ui/styles';
 
-import './Profile.scss';
-
+import Aux from '../../hoc/Aux';
 import ProfileSection from './profileSection/ProfileSection';
+import ProfileStepper from './profileStepper/ProfileStepper';
+
+import './Profile.scss';
 
 import * as ProfileArray from './ProfileArray';
 
@@ -26,27 +28,42 @@ const styles = theme => ({
 
 class Profile extends Component {
   profileArray = [...ProfileArray.ProfileArray];
+  profileSections = [];
+
+  onClickProfileStepper(sectionName) {
+    this.profileSections[sectionName].scrollIntoView();
+    window.scrollBy(0, -60);
+  }
 
   render() {
     const { classes } = this.props;
     let profile = [];
 
-    this.profileArray.map(section => {
-      profile.push((
-        <ProfileSection section={section} key={section.header}/>
-      ));
+    profile = this.profileArray.map((section, index) => {
+      return (
+        <div key={index}
+          ref={el => {
+            this.profileSections[section.header] = el;
+          }}>
+          <ProfileSection 
+            section={section} />
+        </div>
+      );
     });
 
     return (
-      <Grid>
-        <Row className="show-grid">
-          <Col xs={12}>
-            <div className={classes.root}>
-              {profile}
-            </div>
-          </Col>
-        </Row>
-      </Grid>
+      <Aux>
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12}>
+              <div className={classes.root}>
+                {profile}
+              </div>
+            </Col>
+          </Row>
+        </Grid>
+        <ProfileStepper onClickProfileStepper={(sectionName) => this.onClickProfileStepper(sectionName)}/>
+      </Aux>
     );
   }
 }

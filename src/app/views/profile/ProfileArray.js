@@ -168,9 +168,5 @@ export const ProfileArray = [
         ]
       }
     ]
-  },
-  {
-    header: 'OTHERS',
-    subSections:  []
   }
 ];

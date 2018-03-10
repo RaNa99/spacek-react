@@ -1,0 +1,19 @@
+.rbc-header {
+    background-color: #39435c;
+    color: white;
+}
+
+.timeSlotBeforeToday {
+    background-color: #ecf0f1;
+    cursor: not-allowed;
+}
+
+.timeSlotAfterToday {
+    background-color: #2ecc71;
+    opacity: .75;
+}
+
+.eventBlock {
+    background-color: #3498db;
+    opacity: .8;
+}

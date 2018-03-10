@@ -31,6 +31,18 @@ export const navigation = {
     // group menu #2
     {
       id: 2,
+      group: 'Schedule',
+      menus: [
+        {
+          name: 'Schedule',
+          linkTo: '/schedule',
+          faIconName: 'fa-eye'
+        }
+      ]
+    },
+    // group menu #3
+    {
+      id: 3,
       group: 'Dashboard  ',
       menus: [
         {
@@ -75,9 +87,9 @@ export const navigation = {
         }
       ]
     },
-    // group menu #3
+    // group menu #4
     {
-      id: 3,
+      id: 4,
       group: 'General',
       menus: [
         {
@@ -127,9 +139,9 @@ export const navigation = {
         }
       ]
     },
-    // group menu #4
+    // group menu #5
     {
-      id: 4,
+      id: 5,
       group: 'BasicElements',
       menus: [
         {
@@ -139,9 +151,9 @@ export const navigation = {
         }
       ]
     },
-    // group menu #5
+    // group menu #6
     {
-      id: 5,
+      id: 6,
       group: 'SimpleTables',
       menus: [
         {
