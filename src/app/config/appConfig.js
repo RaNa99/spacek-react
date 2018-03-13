@@ -9,7 +9,7 @@ export const appConfig = {
   FAKE_ASYNC_DELAY: 1000,
 
 
-  APP_NAME: 'reactDirector',
+  APP_NAME: 'My Space',
 
   // connection status text references
   CONNECTION_STATUS: {

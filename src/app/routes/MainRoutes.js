@@ -30,7 +30,8 @@ import Schedule                      from '../views/schedule/Schedule';
 
 export const MainRoutes = () => (
   <Switch>
-    <Route exact path="/" component={HomeConnected} />
+    {/* <Route exact path="/" component={HomeConnected} /> */}
+    <Route exact path="/" component={Profile} />
 
     <Route path="/Dashboard/statsCard" component={StatsCardConnected} />
     <Route path="/Dashboard/earningGraph" component={EarningGraphConnected} />
