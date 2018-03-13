@@ -4,6 +4,7 @@ React practice
 ### Description
 
 > A practical react project which is based on React and Redux.
+> This project is forked from ReactJS Director Responsive Admin Template(github: https://github.com/MacKentoch/react-director-admin-template)
 
 ### Prerequisite
 
