@@ -8,7 +8,7 @@ import Modal from 'material-ui/Modal';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Auxiliary';
 
 import ScheduleForm from './scheduleForm/ScheduleForm';
 

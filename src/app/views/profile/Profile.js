@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { withStyles } from 'material-ui/styles';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Auxiliary';
 import ProfileSection from './profileSection/ProfileSection';
 import ProfileStepper from './profileStepper/ProfileStepper';
 
