@@ -108,7 +108,7 @@ export const ProfileArray = [
         items: [
           'Built a personal blog which implementes with React, Redux, Flask and mySQL.',
           'Established Profile, Schedule and Note modules, applied user authentication and RBAC into project.',
-          'GitHub: https://github.com/pinebrook/cloudFan.git'
+          'GitHub: https://github.com/pinebrook/spacek-react.git'
         ]
       },
       {
